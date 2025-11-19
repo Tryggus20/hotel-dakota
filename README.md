@@ -34,7 +34,45 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+===============================================
+db tables: 
+-- Rooms
+CREATE TABLE rooms (
+  id SERIAL PRIMARY KEY,
+  number VARCHAR(10) NOT NULL,
+  type VARCHAR(50),
+  price NUMERIC(10,2),
+  is_available BOOLEAN DEFAULT TRUE
+);
 
+-- Guests
+CREATE TABLE guests (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  phone VARCHAR(20)
+);
+
+-- Bookings
+CREATE TABLE bookings (
+  id SERIAL PRIMARY KEY,
+  guest_id INT REFERENCES guests(id),
+  room_id INT REFERENCES rooms(id),
+  check_in TIMESTAMP NOT NULL,
+  check_out TIMESTAMP NOT NULL,
+  status VARCHAR(20) DEFAULT 'pending'
+);
+
+-- Receptionists
+CREATE TABLE receptionists (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL
+);
+
+================================================
+timesheet:
 
 11-19-25
 1:45pm started project
