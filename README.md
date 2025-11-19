@@ -38,3 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 11-19-25
 1:45pm started project
+2.25pm structured files/folders
