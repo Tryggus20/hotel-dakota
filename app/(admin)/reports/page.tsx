@@ -1,0 +1,1 @@
+// manage different reports about revenue, expenses, and occupancy (starting with just occupancy)
